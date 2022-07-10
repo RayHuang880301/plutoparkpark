@@ -1,0 +1,12 @@
+.bar {
+  width: 400px;
+  height: 15px;
+
+  background: #FFFFFF;
+  border: 1px solid #000000;
+}
+
+.word {
+  font-weight: 800;
+  font-size: 36px;
+}

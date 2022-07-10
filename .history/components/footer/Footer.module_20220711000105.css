@@ -1,0 +1,23 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem;
+  height: 100px;
+  background: #E2E2E2;
+}
+
+.img {
+  width: 150px;
+}
+
+.word {
+  font-weight: 600;
+  width: 180px;
+}
+
+.copyright {
+  width: 150px;
+  font-weight: 600;
+  color: #056FD8;
+}

@@ -1,0 +1,22 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem;
+  height: 150px;
+  background: #E2E2E2;
+  border: 1px solid #000000;
+}
+
+.mediaBox {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  width: 150px;
+}
+
+.copyright {
+  width: 150px;
+  font-weight: 600;
+  color: #056FD8;
+}

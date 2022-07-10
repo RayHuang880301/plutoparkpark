@@ -1,0 +1,10 @@
+.box {
+  text-align: center;
+  margin: 0 2rem;
+}
+
+.choice {
+  margin: 2rem;
+  font-weight: 800;
+  font-size: 36px;
+}

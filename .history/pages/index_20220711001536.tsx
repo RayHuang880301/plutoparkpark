@@ -6,7 +6,6 @@ import FrontCover from '../components/frontCover/FrontCover'
 
 const Home: NextPage = () => {
   return (
-    <>
     <Head>
       <title>PlutoLab</title>
       <meta property="og:type" content="website" />
@@ -18,7 +17,6 @@ const Home: NextPage = () => {
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap" rel="stylesheet"></link>
     </Head>
     <FrontCover />
-    </>
   )
 }
 

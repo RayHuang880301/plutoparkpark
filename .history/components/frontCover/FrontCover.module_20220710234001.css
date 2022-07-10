@@ -1,0 +1,8 @@
+.section {
+  background: url('../../assets/frontCover.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  border-bottom: 1px solid #000000;
+}
