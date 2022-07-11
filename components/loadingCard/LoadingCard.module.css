@@ -13,12 +13,28 @@
 }
 
 .line {
-  width: 308px;
+  width: 99%;
   height: 13px;
   background: #D9D9D9;
+  animation: loadingbar 10s ease-in-out;
+  animation-iteration-count: 1;
 }
 
 .word {
   font-weight: 800;
   font-size: 36px;
+}
+
+@keyframes loadingbar {
+  0% {
+    width: 0%
+  }
+  
+  50% {
+    width: 80%
+  }
+
+  100% {
+    width: 96%;
+  }
 }
