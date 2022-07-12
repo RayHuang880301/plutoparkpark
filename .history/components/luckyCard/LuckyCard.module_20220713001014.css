@@ -1,7 +1,7 @@
 .box {
   cursor: pointer;
   text-align: center;
-  margin: 0 2rem;
+  margin: 2rem;
 }
 
 .boxActive .boxImage {
