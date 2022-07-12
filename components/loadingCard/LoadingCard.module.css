@@ -23,6 +23,7 @@
 .word {
   font-weight: 800;
   font-size: 36px;
+  color: white;
 }
 
 @keyframes loadingbar {

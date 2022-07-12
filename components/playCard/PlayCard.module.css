@@ -1,10 +1,35 @@
 .box {
   text-align: center;
   margin: 0 2rem;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .choice {
+  color: white;
   margin: 2rem;
   font-weight: 800;
   font-size: 36px;
+}
+
+
+.boxImage {
+  margin: 0 auto;
+  position: relative;
+  /* box-sizing: content-box; */
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+  width: 36vh;
+  height: 36vh;
+  overflow: hidden;
+}
+
+.subBoxImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }

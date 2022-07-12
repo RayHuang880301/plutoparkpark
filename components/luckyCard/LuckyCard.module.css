@@ -15,13 +15,14 @@
 }
 
 .boxImage {
+  position: relative;
   /* box-sizing: content-box; */
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
 
   border-radius: 5px;
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 13vw;
+  height: 13vw;
   transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out;
   overflow: hidden;
 }
@@ -35,4 +36,11 @@
   margin: 1rem;
   font-weight: 800;
   font-size: 36px;
+  color: white;
+}
+
+.subBoxImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
