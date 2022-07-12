@@ -1,20 +1,37 @@
 import React from 'react'
 import styles from './ResultCard.module.css'
-import Image from 'next/image'
+import Image from 'next/image';
+import ImageTicket from '../../assets/ticket.png';
 
 interface Props {
-  src: string;
   result: string;
   word: string;
+  image: string;
+  subImage: string;
 }
 
 export default function ResultCard(props: Props) {
-  const { src, result, word } = props
+  const { result, word, subImage, image } = props;
+
   return (
-    <div className={styles.bg}>
-      <Image src={src} width={170} height={170} alt=''/>
-      <div className={styles.result}>{result}</div>
-      <div className={styles.word}>{word}</div>
+    <div className={styles.container}>
+       <div className={styles.bg}>
+       <div className={styles.boxImage} style={{backgroundColor: '#F1CD4B', }}>
+        {
+          (
+            subImage &&
+            <div className={styles.subBoxImage}>
+              <Image src={subImage} width={180} height={180} alt='' layout='fill'/>
+            </div>
+          ) || ''
+        }
+        <Image src={image} width={180} height={180} alt='' layout='fill' />
+      </div>
+        <div className={styles.content}>
+          <h2 className={styles.result}>{result}</h2>
+          <div className={styles.word}>{word}</div>
+        </div>
+      </div>
     </div>
   )
 }
