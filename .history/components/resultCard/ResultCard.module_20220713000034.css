@@ -15,7 +15,7 @@
   background: url('../../assets//ticket.png') center bottom no-repeat;
   background-size: contain;
   width: 39.3vh;
-  height: 65vh;
+  height: 70vh;
 }
 
 .result {
@@ -29,11 +29,11 @@
   font-weight: 800;
   font-size: 24px;
   color: white;
-  padding: 0 1.5rem 1rem 1.5rem;
+  padding: 0 1rem 2rem 1rem;
 }
 
 .boxImage {
-  margin: 1rem 1rem 0 1rem;
+  margin: 2rem 2rem 0 2rem;
   /* position: relative; */
   /* box-sizing: content-box; */
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);

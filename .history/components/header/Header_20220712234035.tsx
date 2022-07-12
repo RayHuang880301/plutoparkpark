@@ -8,9 +8,9 @@ import Image from 'next/image'
 export default function Header() {
   return (
     <div className={styles.header}>
-      <Image src={pImg} width={50} height={35} alt=''/>
-      <Image src={plutoLabImg} width={150} height={35} alt=''/>
-      <Image src={pStarImg} width={50} height={35} alt=''/>
+      <Image src={pImg} width={50} height={40} alt=''/>
+      <Image src={plutoLabImg} width={150} height={40} alt=''/>
+      <Image src={pStarImg} width={50} height={40} alt=''/>
     </div>
   )
 }

@@ -14,7 +14,6 @@ export default function ResultCard(props: Props) {
   const { result, word, subImage, image } = props;
 
   return (
-    <div className={styles.container}>
        <div className={styles.bg}>
         <div className={styles.boxImage} style={{backgroundColor: '#F1CD4B', }}>
         {
@@ -30,6 +29,5 @@ export default function ResultCard(props: Props) {
         <div className={styles.result}>{result}</div>
         <div className={styles.word}>{word}</div>
       </div>
-    </div>
   )
 }

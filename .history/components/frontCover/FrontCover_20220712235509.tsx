@@ -354,8 +354,8 @@ export default function FrontCover() {
                   
 
         }
-      </div>
       <Footer />
+      </div>
     </div>
   )
 }
