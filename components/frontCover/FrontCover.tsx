@@ -284,24 +284,24 @@ export default function FrontCover() {
         case 'R':
           chooseFortune(FortuneType.Health);     
           break;
-        case 'a':
-        case 'A':
-          chooseFeeling(FeelingType.Sleep);     
-          break;
-        case 's':
-        case 'S':
-          chooseFeeling(FeelingType.Hot);     
-          break;
         case 'd':
         case 'D':
-          chooseFeeling(FeelingType.Drink);     
+          chooseFeeling(FeelingType.Sleep);     
           break;
         case 'f':
         case 'F':
-          chooseFeeling(FeelingType.Comfortable);     
+          chooseFeeling(FeelingType.Hot);     
           break;
         case 'g':
         case 'G':
+          chooseFeeling(FeelingType.Drink);     
+          break;
+        case 'h':
+        case 'H':
+          chooseFeeling(FeelingType.Comfortable);     
+          break;
+        case 'j':
+        case 'J':
           chooseFeeling(FeelingType.Big);     
           break;
         default:
