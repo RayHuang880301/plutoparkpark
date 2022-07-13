@@ -8,14 +8,14 @@
   width: 400px;
   height: 15px;
   margin: 2rem;
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid #000000;
 }
 
 .line {
   width: 99%;
   height: 13px;
-  background: #D9D9D9;
+  background: #e6dd35;
   animation: loadingbar 5s ease-in-out;
   animation-iteration-count: 1;
 }

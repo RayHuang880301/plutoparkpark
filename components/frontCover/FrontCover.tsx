@@ -26,7 +26,7 @@ import keyboard3 from '../../assets/keyboard3.png'
 import keyboard4 from '../../assets/keyboard4.png'
 
 const FAKE_LOADING_TIME = 5 * 1000;
-const SPECIAL_TIME = 14.6 * 100000;
+const SPECIAL_TIME = 14.6 * 1000;
 
 export enum FortuneType {
   None,
@@ -278,9 +278,6 @@ export default function FrontCover() {
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
-      if(isFeelingSubmit && isFortuneSubmit) {
-        return;
-      }
       if(event.key) {
         switch (event.key) {
           case 'a':

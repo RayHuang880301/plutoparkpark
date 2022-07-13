@@ -103,7 +103,7 @@ export default function PlayCard(props: Props) {
       remove(ele, time);
   }
   function rotateRandomBatch(name = 'b3', time = 500) {
-      new Array(Math.round((Math.random() * 5) + 3)).fill(0).forEach(() => {
+      new Array(Math.round((Math.random() * 3) + 3)).fill(0).forEach(() => {
           rotateRandom(name, time);
       });
   }
