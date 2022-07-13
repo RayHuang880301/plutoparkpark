@@ -228,23 +228,27 @@ export default function FrontCover() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFortuneSubmit, isFeelingSubmit, specialComfirmState])
 
-  const chooseFortune = (fortune: FortuneType) => {
-    console.log(fortune, fortuneType, isFortuneSubmit)
+  const chooseFortune = useCallback((fortune: FortuneType) => {
+    if(isFortuneSubmit) {
+      return;
+    }
     if(fortuneType !== fortune) {
       setFortuneType(fortune);
     } else {
       setIsFortuneSubmit(true);
     }
-    console.log(fortune, fortuneType, isFortuneSubmit, setFortuneType)
-  }
+  }, [fortuneType, isFortuneSubmit])
 
-  const chooseFeeling = (feeling: FeelingType) => {
+  const chooseFeeling = useCallback((feeling: FeelingType) => {
+    if(isFeelingSubmit) {
+      return;
+    }
     if(feelingType !== feeling) {
       setFeelingType(feeling);
     } else {
       setIsFeelingSubmit(true);
     }
-  }
+  }, [feelingType, isFeelingSubmit])
 
   const isFortuneActive = (fortune: FortuneType) => {
     return !isFortuneSubmit && fortune === fortuneType;
@@ -272,6 +276,10 @@ export default function FrontCover() {
       }
       if(event.key) {
         switch (event.key) {
+          case 'a':
+          case 'A':
+            location.reload();
+            break;
           case 'q':
           case 'Q':
             chooseFortune(FortuneType.Study);     
@@ -317,7 +325,7 @@ export default function FrontCover() {
     return () => {
       window.removeEventListener('keydown', keyDownHandler);
     }
-  }, [])
+  }, [chooseFeeling, chooseFortune, isFeelingSubmit, isFortuneSubmit, fortuneType, feelingType])
 
   return (
     <div className={styles.section}>
