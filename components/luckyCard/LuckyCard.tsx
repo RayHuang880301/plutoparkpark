@@ -46,11 +46,11 @@ export default function LuckyCard(props: Props) {
           (
             subImage &&
             <div className={styles.subBoxImage}>
-              <Image src={subImage} width={180} height={180} alt=''/>
+              <Image src={subImage} width={180} height={180} alt='' layout='responsive'/>
             </div>
           ) || ''
         }
-        <Image src={img} width={180} height={180} alt=''/>
+        <Image src={img} width={180} height={180} alt='' layout='responsive'/>
       </div>
       <div className={styles.choice}>{children}</div>
     </div>

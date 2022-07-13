@@ -21,14 +21,16 @@ export default function ResultCard(props: Props) {
           (
             subImage &&
             <div className={styles.subBoxImage}>
-              <Image src={subImage} width={180} height={180} alt=''/>
+              <Image src={subImage} width={180} height={180} alt='' layout='responsive'/>
             </div>
           ) || ''
         }
-        <Image src={image} width={180} height={180} alt=''/>
+        <Image src={image} width={180} height={180} alt='' layout='responsive'/>
         </div>
-        <div className={styles.result}>{result}</div>
-        <div className={styles.word}>{word}</div>
+        <div className={styles.content}>
+          <h2 className={styles.result}>{result}</h2>
+          <div className={styles.word}>{word}</div>
+        </div>
       </div>
     </div>
   )
