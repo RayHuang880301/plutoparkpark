@@ -350,7 +350,7 @@ export default function FrontCover() {
         {
           (isFortuneSubmit && !isFeelingSubmit &&
           <div className={styles.cards}>
-            {FeelingList.map((item, idx) =>  <LuckyCard onClick={(event) => chooseFeeling(item.type)} isPlay={isFeelingActive(item.type)} audioPath={item.audioPath} key={idx} img={item.image} backgroundColor={isFeelingActive(item.type) ? '#939393' : item.backgroundColor} subImage={subImage()}>{item.title}</LuckyCard> )}
+            {FeelingList.map((item, idx) =>  <LuckyCard size={true} onClick={(event) => chooseFeeling(item.type)} isPlay={isFeelingActive(item.type)} audioPath={item.audioPath} key={idx} img={item.image} backgroundColor={isFeelingActive(item.type) ? '#939393' : item.backgroundColor} subImage={subImage()}>{item.title}</LuckyCard> )}
           </div> ) || ''
         }
         {

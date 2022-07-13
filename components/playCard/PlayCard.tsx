@@ -145,14 +145,12 @@ export default function PlayCard(props: Props) {
         player.currentTime = 0;
       }
       player.play();
-      console.log(fortuneType)
       effectList[random](fortuneType as any);
     }
   };
 
   useEffect(() => {
     const handler = (event: any) => {
-      console.log(event.key)
       if(event.key === 'z') {
         playRandomEffect();
       }
@@ -173,11 +171,11 @@ export default function PlayCard(props: Props) {
           (
             subImage &&
             <div className={styles.subBoxImage}>
-              <Image src={subImage} width={300} height={300} alt='' layout='responsive'/>
+              <Image src={subImage} width={200} height={200} alt='' layout='responsive'/>
             </div>
           ) || ''
         }
-        <Image src={image} width={300} height={300} alt='' layout='responsive'/>
+        <Image src={image} width={200} height={200} alt='' layout='responsive'/>
       </div>
       <div className={styles.choice}>即興加入音效，信仰加持一波！</div>
     </div>
