@@ -20,6 +20,10 @@ import ImageFeeling2 from '../../assets/hot.png';
 import ImageFeeling3 from '../../assets/drink.png';
 import ImageFeeling4 from '../../assets/comfort.png';
 import ImageFeeling5 from '../../assets/big.png';
+import keyboard1 from '../../assets/keyboard1.png'
+import keyboard2 from '../../assets/keyboard2.png'
+import keyboard3 from '../../assets/keyboard3.png'
+import keyboard4 from '../../assets/keyboard4.png'
 
 const FAKE_LOADING_TIME = 5 * 1000;
 const SPECIAL_TIME = 14.6 * 1000;
@@ -143,6 +147,7 @@ export default function FrontCover() {
   const [isFortuneSubmit, setIsFortuneSubmit] = useState(false);
   const [feelingType, setFeelingType] = useState<FeelingType>(FeelingType.None);
   const [isFeelingSubmit, setIsFeelingSubmit] = useState(false);
+  const [keyboardImg, setKeyboardImg] = useState<string>(keyboard1.src);
 
   const subImage = useCallback(() => {
     const item = FortuneList.find(item => item.type === fortuneType);
@@ -218,6 +223,7 @@ export default function FrontCover() {
         isLoaded: true,
         timeoutId: 0,
       })
+      setKeyboardImg(keyboard4.src)
     }, FAKE_LOADING_TIME);
     setLoadingState({
       isLoaded: false,
@@ -233,6 +239,7 @@ export default function FrontCover() {
       setFortuneType(fortune);
     } else {
       setIsFortuneSubmit(true);
+      setKeyboardImg(keyboard2.src)
     }
     console.log(fortune, fortuneType, isFortuneSubmit, setFortuneType)
   }
@@ -242,6 +249,7 @@ export default function FrontCover() {
       setFeelingType(feeling);
     } else {
       setIsFeelingSubmit(true);
+      setKeyboardImg(keyboard3.src)
     }
   }
 
@@ -270,7 +278,8 @@ export default function FrontCover() {
       switch (event.key) {
         case 'q':
         case 'Q':
-          chooseFortune(FortuneType.Study);     
+          chooseFortune(FortuneType.Study);
+          console.log(FortuneType.Study)
           break;
         case 'w':
         case 'W':
@@ -355,7 +364,7 @@ export default function FrontCover() {
 
         }
       </div>
-      <Footer />
+      <Footer>{keyboardImg}</Footer>
     </div>
   )
 }
