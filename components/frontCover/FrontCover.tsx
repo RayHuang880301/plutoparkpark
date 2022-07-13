@@ -20,11 +20,12 @@ import ImageFeeling2 from '../../assets/hot.png';
 import ImageFeeling3 from '../../assets/drink.png';
 import ImageFeeling4 from '../../assets/comfort.png';
 import ImageFeeling5 from '../../assets/big.png';
+import PlutoEffect from '../plutoEffect/plutoEffect'
 
 const FAKE_LOADING_TIME = 5 * 1000;
-const SPECIAL_TIME = 14.6 * 1000;
+const SPECIAL_TIME = 14.6 * 100000;
 
-enum FortuneType {
+export enum FortuneType {
   None,
   Study,
   Work,
@@ -32,7 +33,7 @@ enum FortuneType {
   Health
 }
 
-enum FeelingType {
+export enum FeelingType {
   None,
   Sleep,
   Hot,
@@ -322,6 +323,7 @@ export default function FrontCover() {
     <div className={styles.section}>
       {/* <Header /> */}
       <div className={styles.container}>
+        {/* <PlutoEffect></PlutoEffect> */}
         {
           !isFortuneSubmit &&
           (
@@ -341,7 +343,7 @@ export default function FrontCover() {
         }
         {
           (!specialComfirmState.isComfirm && isFortuneSubmit && isFeelingSubmit && 
-          <PlayCard image={eyeImage()} subImage={subImage()}></PlayCard>) || ''
+          <PlayCard fortuneType={fortuneType} image={eyeImage()} subImage={subImage()}></PlayCard>) || ''
         }
         {
           (!loadingState.isLoaded && specialComfirmState.isComfirm  && isFortuneSubmit && isFeelingSubmit && 
