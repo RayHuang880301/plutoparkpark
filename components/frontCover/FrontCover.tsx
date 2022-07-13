@@ -26,9 +26,9 @@ import keyboard3 from '../../assets/keyboard3.png'
 import keyboard4 from '../../assets/keyboard4.png'
 
 const FAKE_LOADING_TIME = 5 * 1000;
-const SPECIAL_TIME = 14.6 * 1000;
+const SPECIAL_TIME = 14.6 * 100000;
 
-enum FortuneType {
+export enum FortuneType {
   None,
   Study,
   Work,
@@ -36,7 +36,7 @@ enum FortuneType {
   Health
 }
 
-enum FeelingType {
+export enum FeelingType {
   None,
   Sleep,
   Hot,
@@ -270,56 +270,56 @@ export default function FrontCover() {
     audio2.play();
   }
 
-  const keyDownHandler = (event: any) => {
-    if(isFeelingSubmit && isFortuneSubmit) {
-      return;
-    }
-    if(event.key) {
-      switch (event.key) {
-        case 'q':
-        case 'Q':
-          chooseFortune(FortuneType.Study);
-          console.log(FortuneType.Study)
-          break;
-        case 'w':
-        case 'W':
-          chooseFortune(FortuneType.Work);     
-          break;
-        case 'e':
-        case 'E':
-          chooseFortune(FortuneType.Love);     
-          break;
-        case 'r':
-        case 'R':
-          chooseFortune(FortuneType.Health);     
-          break;
-        case 'a':
-        case 'A':
-          chooseFeeling(FeelingType.Sleep);     
-          break;
-        case 's':
-        case 'S':
-          chooseFeeling(FeelingType.Hot);     
-          break;
-        case 'd':
-        case 'D':
-          chooseFeeling(FeelingType.Drink);     
-          break;
-        case 'f':
-        case 'F':
-          chooseFeeling(FeelingType.Comfortable);     
-          break;
-        case 'g':
-        case 'G':
-          chooseFeeling(FeelingType.Big);     
-          break;
-        default:
-          break;
-      }
-    }
-  }
+  
 
   useEffect(() => {
+    const keyDownHandler = (event: any) => {
+      if(isFeelingSubmit && isFortuneSubmit) {
+        return;
+      }
+      if(event.key) {
+        switch (event.key) {
+          case 'q':
+          case 'Q':
+            chooseFortune(FortuneType.Study);     
+            break;
+          case 'w':
+          case 'W':
+            chooseFortune(FortuneType.Work);     
+            break;
+          case 'e':
+          case 'E':
+            chooseFortune(FortuneType.Love);     
+            break;
+          case 'r':
+          case 'R':
+            chooseFortune(FortuneType.Health);     
+            break;
+          case 'd':
+          case 'D':
+            chooseFeeling(FeelingType.Sleep);     
+            break;
+          case 'f':
+          case 'F':
+            chooseFeeling(FeelingType.Hot);     
+            break;
+          case 'g':
+          case 'G':
+            chooseFeeling(FeelingType.Drink);     
+            break;
+          case 'h':
+          case 'H':
+            chooseFeeling(FeelingType.Comfortable);     
+            break;
+          case 'j':
+          case 'J':
+            chooseFeeling(FeelingType.Big);     
+            break;
+          default:
+            break;
+        }
+      }
+    }
     window.addEventListener('keydown', keyDownHandler);
     return () => {
       window.removeEventListener('keydown', keyDownHandler);
@@ -330,6 +330,7 @@ export default function FrontCover() {
     <div className={styles.section}>
       {/* <Header /> */}
       <div className={styles.container}>
+        {/* <PlutoEffect></PlutoEffect> */}
         {
           !isFortuneSubmit &&
           (
@@ -349,7 +350,7 @@ export default function FrontCover() {
         }
         {
           (!specialComfirmState.isComfirm && isFortuneSubmit && isFeelingSubmit && 
-          <PlayCard image={eyeImage()} subImage={subImage()}></PlayCard>) || ''
+          <PlayCard fortuneType={fortuneType} image={eyeImage()} subImage={subImage()}></PlayCard>) || ''
         }
         {
           (!loadingState.isLoaded && specialComfirmState.isComfirm  && isFortuneSubmit && isFeelingSubmit && 
