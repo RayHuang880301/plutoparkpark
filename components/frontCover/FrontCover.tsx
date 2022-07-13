@@ -262,55 +262,56 @@ export default function FrontCover() {
     audio2.play();
   }
 
-  const keyDownHandler = (event: any) => {
-    if(isFeelingSubmit && isFortuneSubmit) {
-      return;
-    }
-    if(event.key) {
-      switch (event.key) {
-        case 'q':
-        case 'Q':
-          chooseFortune(FortuneType.Study);     
-          break;
-        case 'w':
-        case 'W':
-          chooseFortune(FortuneType.Work);     
-          break;
-        case 'e':
-        case 'E':
-          chooseFortune(FortuneType.Love);     
-          break;
-        case 'r':
-        case 'R':
-          chooseFortune(FortuneType.Health);     
-          break;
-        case 'd':
-        case 'D':
-          chooseFeeling(FeelingType.Sleep);     
-          break;
-        case 'f':
-        case 'F':
-          chooseFeeling(FeelingType.Hot);     
-          break;
-        case 'g':
-        case 'G':
-          chooseFeeling(FeelingType.Drink);     
-          break;
-        case 'h':
-        case 'H':
-          chooseFeeling(FeelingType.Comfortable);     
-          break;
-        case 'j':
-        case 'J':
-          chooseFeeling(FeelingType.Big);     
-          break;
-        default:
-          break;
-      }
-    }
-  }
+  
 
   useEffect(() => {
+    const keyDownHandler = (event: any) => {
+      if(isFeelingSubmit && isFortuneSubmit) {
+        return;
+      }
+      if(event.key) {
+        switch (event.key) {
+          case 'q':
+          case 'Q':
+            chooseFortune(FortuneType.Study);     
+            break;
+          case 'w':
+          case 'W':
+            chooseFortune(FortuneType.Work);     
+            break;
+          case 'e':
+          case 'E':
+            chooseFortune(FortuneType.Love);     
+            break;
+          case 'r':
+          case 'R':
+            chooseFortune(FortuneType.Health);     
+            break;
+          case 'd':
+          case 'D':
+            chooseFeeling(FeelingType.Sleep);     
+            break;
+          case 'f':
+          case 'F':
+            chooseFeeling(FeelingType.Hot);     
+            break;
+          case 'g':
+          case 'G':
+            chooseFeeling(FeelingType.Drink);     
+            break;
+          case 'h':
+          case 'H':
+            chooseFeeling(FeelingType.Comfortable);     
+            break;
+          case 'j':
+          case 'J':
+            chooseFeeling(FeelingType.Big);     
+            break;
+          default:
+            break;
+        }
+      }
+    }
     window.addEventListener('keydown', keyDownHandler);
     return () => {
       window.removeEventListener('keydown', keyDownHandler);
