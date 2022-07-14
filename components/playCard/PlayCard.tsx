@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState, useCallback } from 'react'
 import styles from './PlayCard.module.css'
 import Image from 'next/image'
 import ImageEffect1 from '../../assets/effect1.png'
@@ -30,9 +30,20 @@ export default function PlayCard(props: Props) {
   // PLUTOEFFECT
   const root = useRef<HTMLDivElement>(null);
   //
-  
-  const playRandomEffect = () => {
-    const effectList = [rotateRandomBatch, rotateRandomBatch, rotateRandomBatch, rotateRandomBatch ]
+
+
+  const [isEffectPlaying, setIsEffectPlaying] = useState(0);
+  const onEffectPlay = useCallback((time: number = 200) => {
+    if(isEffectPlaying > 0) {
+      clearTimeout(isEffectPlaying);
+    }
+    setIsEffectPlaying(time);
+    setTimeout(() => {
+      setIsEffectPlaying(0);
+    }, time)
+  }, [isEffectPlaying]);
+  const playRandomEffect = (): number => {
+    const effectList = [animateFadeInBatch, fadeInCenterBig, rotateRandomBatch, heartbeat ]
     const list = [effectMusic1, effectMusic2, effectMusic3, effectMusic4]
     const random = Math.floor(Math.random() * list.length);
     const player = list[random].current;
@@ -43,8 +54,10 @@ export default function PlayCard(props: Props) {
       }
       player.play();
       console.log(fortuneType)
-      effectList[random](root.current, fortuneType as any);
+      const time = effectList[random](root.current, fortuneType as any);
+      onEffectPlay();
     }
+    return 0;
   };
 
   useEffect(() => {
@@ -61,11 +74,15 @@ export default function PlayCard(props: Props) {
     }
   }, [])
 
+  const onClickEffect = () => {
+    playRandomEffect();
+  }
+
   return (
     <>
-    <div ref={root} id="pluto-effect" className="pluto-effect only-nft"></div>
-    <div className={styles.box}>
-      <div className={styles.boxImage} style={{backgroundColor: '#F1CD4B', }}>
+    <div ref={root} id="pluto-effect" onClick={onClickEffect} className="pluto-effect only-nft"></div>
+    <div className={`${styles.box}`}>
+      <div className={`${styles.boxImage} ${isEffectPlaying ? styles.playing : ''}`} style={{backgroundColor: '#F1CD4B', }}>
         {
           (
             subImage &&
@@ -74,7 +91,10 @@ export default function PlayCard(props: Props) {
             </div>
           ) || ''
         }
-        <Image src={image} width={300} height={300} alt='' layout='responsive'/>
+        <div className={`${styles.boxEyeImage}`}>
+          <Image src={image} width={300} height={300} alt='' layout='responsive'/>
+        </div>
+
       </div>
       <div className={styles.choice}>即興加入音效，信仰加持一波！</div>
     </div>
@@ -91,31 +111,6 @@ function remove(current: Element | null, ele: Element, time: number) {
   }, time);
 }
 
-function bounceInTop(current: Element | null, name = FortuneType.Study, time = 700) {
-  const ele = createElement('ebit' + name, 'effect-item ef-bounce-in-top');
-  const img = createElement(`${name}-img`, '', 'img');
-  img.setAttribute('src', require(name));
-  ele.append(img);
-  if (Math.random() > 0.5) {
-      // img.style.transform = 'rotate(90deg)';
-      ele.style.bottom = `${(Math.random() * 7 + 1) / 10 * window.innerHeight}px`;
-      ele.style.left = '-20%';
-      ele.style.opacity = '0.2';
-      setTimeout(() => {
-          ele.style.left = '120%';
-          ele.style.opacity = '1';
-      }, 50);
-  } else {
-      ele.style.bottom = '115%';
-      ele.style.left = `${(Math.random() * 7 + 1) / 10 * window.innerWidth}px`;
-      ele.style.opacity = '0.2';
-      setTimeout(() => {
-          ele.style.bottom = '-20%';
-          ele.style.opacity = '1';
-      }, 50);
-  }
-  remove(current, ele, time);
-}
 function heartbeat(current: Element | null, name = FortuneType.Study, time = 700) {
   const ele = createElement('eh' + name, 'effect-item ef-heartbeat');
   const img = createElement(`${name}-img`, '', 'img');
@@ -126,25 +121,7 @@ function heartbeat(current: Element | null, name = FortuneType.Study, time = 700
   ele.style.top = `${y}px`;
 
   remove(current, ele, time);
-}
-function waterfall(current: Element | null, name = FortuneType.Study, time = 1500) {
-  let offset = 0;
-  const num = 6;
-  const offsetBase = Math.round(window.innerWidth / num);
-  new Array(num).fill(0).forEach((_, i) => {
-      const ele = createElement('tbp' + name, 'effect-item ef-waterfall top-bottom');
-      ele.style.transform = `translateX(${offset}px)`;
-      const box = createElement('tbpb' + name, 'box');
-      setTimeout(() => {
-          const img = createElement(`${name}-img-${i}`, '', 'img');
-          img.setAttribute('src', require(name));
-          box.append(img);
-          ele.append(box);
-
-          remove(current, ele, time);
-      }, (Math.random() * 30) * 3 * i);
-      offset += offsetBase;
-  });
+  return time;
 }
 function rotateRandom(current: Element | null, name = FortuneType.Study, time = 500) {
   const ele = createElement('eri' + name, 'effect-item ef-rotate-item');
@@ -156,11 +133,13 @@ function rotateRandom(current: Element | null, name = FortuneType.Study, time = 
   ele.style.top = `${y}px`;
 
   remove(current, ele, time);
+  return time;
 }
-function rotateRandomBatch(current: Element | null, name = FortuneType.Study, time = 50000) {
+function rotateRandomBatch(current: Element | null, name = FortuneType.Study, time = 500) {
   new Array(Math.round((Math.random() * 3) + 3)).fill(0).forEach(() => {
       rotateRandom(current, name, time);
   });
+  return time;
 }
 const fadeInCenterBig = (current: Element | null, name = FortuneType.Study, time = 500) => {
   const ele = createElement('efb' + name, 'effect-item ef-fade-big');
@@ -169,6 +148,7 @@ const fadeInCenterBig = (current: Element | null, name = FortuneType.Study, time
   ele.append(img);
 
   remove(current, ele, time);
+  return time;
 }
 
 function animateFadeIn(current: Element | null, name = FortuneType.Study, time = 1000) {
@@ -181,11 +161,13 @@ function animateFadeIn(current: Element | null, name = FortuneType.Study, time =
   ele.style.top = `${y}px`;
 
   remove(current, ele, time);
+  return time;
 }
 function animateFadeInBatch(current: Element | null, name = FortuneType.Study, time = 1000) {
   new Array(Math.round((Math.random() * 5) + 3)).fill(0).forEach(() => {
       animateFadeIn(current, name, time);
   });
+  return time;
 }
 
 function require(name: FortuneType) {
