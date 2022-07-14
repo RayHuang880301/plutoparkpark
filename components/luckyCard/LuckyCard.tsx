@@ -9,10 +9,11 @@ interface Props {
   isPlay: boolean;
   backgroundColor: string;
   subImage?: string;
+  isFortuneSubmit?: boolean;
 }
 
 export default function LuckyCard(props: Props) {
-  const { img, children, onClick, audioPath, isPlay, backgroundColor, subImage } = props;
+  const { isFortuneSubmit, img, children, onClick, audioPath, isPlay, backgroundColor, subImage } = props;
   const musicPlayers = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== "undefined" ? new Audio(audioPath) : undefined
   );
@@ -46,11 +47,11 @@ export default function LuckyCard(props: Props) {
           (
             subImage &&
             <div className={styles.subBoxImage}>
-              <Image src={img} width={180} height={180} alt='' layout='responsive'/>
+              <Image src={subImage} width={180} height={180} alt='' layout='responsive'/>
             </div>
           ) || ''
         }
-        {/* <Image src={img} width={180} height={180} alt='' layout='responsive'/> */}
+        {isFortuneSubmit && <Image src={img} width={180} height={180} alt='' layout='responsive'/>}
       </div>
       {/* <div className={styles.choice}>{children}</div> */}
     </div>
