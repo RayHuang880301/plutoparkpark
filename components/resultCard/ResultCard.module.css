@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 .bg {
@@ -14,27 +14,27 @@
   /* justify-content: space-between; */
   background: url('../../assets//ticket.png') center bottom no-repeat;
   background-size: contain;
+  margin-top: 3%;
   width: 39.3vh;
   height: 70vh;
 }
 
 .result {
   font-weight: 800;
-  font-size: 56px;
+  font-size: 48px;
   text-align: center;
-  margin: 1rem auto;
-
+  margin: 0.8rem 0 0.5rem 0;
 }
 
 .word {
   font-weight: 800;
-  font-size: 22px;
+  font-size: 20px;
   
-  padding: 0 1.5rem 1rem 1.5rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .boxImage {
-  margin: 2rem 0rem 0 1rem;
+  margin: 2rem 0rem 0 0rem;
   /* position: relative; */
   /* box-sizing: content-box; */
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
@@ -51,7 +51,7 @@
 }
 
 .content {
-  padding: 1rem;
+  /* padding: 1rem; */
   /* margin-top: 1rem; */
 }
 
