@@ -34,5 +34,5 @@
 .cards {
   display: flex;
   flex-direction: row;
-  margin: 3rem;
+  margin: 5rem;
 }
