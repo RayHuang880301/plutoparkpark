@@ -3,6 +3,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
+    overflow: hidden;
 
     .effect-item {
         z-index: 4;
@@ -96,7 +97,8 @@
             bottom: 40%;
 
             img {
-                width: 21z0px;
+                width: 210px;
+                height: auto;
             }
 
             animation: rotate-item 500ms ease-out;
