@@ -21,6 +21,7 @@ const Home: NextPage = () => {
     <FrontCover />
     </>
   )
+
 }
 
 export default Home
