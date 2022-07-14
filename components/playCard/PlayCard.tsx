@@ -42,7 +42,7 @@ export default function PlayCard(props: Props) {
       setIsEffectPlaying(0);
     }, time)
   }, [isEffectPlaying]);
-  const playRandomEffect = (): number => {
+  const playRandomEffect = useCallback((): number => {
     const effectList = [animateFadeInBatch, fadeInCenterBig, rotateRandomBatch, heartbeat ]
     const list = [effectMusic1, effectMusic2, effectMusic3, effectMusic4]
     const random = Math.floor(Math.random() * list.length);
@@ -58,7 +58,7 @@ export default function PlayCard(props: Props) {
       onEffectPlay();
     }
     return 0;
-  };
+  }, [fortuneType, onEffectPlay])
 
   useEffect(() => {
     const handler = (event: any) => {
@@ -72,15 +72,12 @@ export default function PlayCard(props: Props) {
     return () => {
       window.removeEventListener("keydown", handler);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  const onClickEffect = () => {
-    playRandomEffect();
-  }
 
   return (
     <>
-    <div ref={root} id="pluto-effect" onClick={onClickEffect} className="pluto-effect only-nft"></div>
+    <div ref={root} id="pluto-effect" onClick={() => playRandomEffect} className="pluto-effect only-nft"></div>
     <div className={`${styles.box}`}>
       <div className={`${styles.boxImage} ${isEffectPlaying ? styles.playing : ''}`} style={{backgroundColor: '#F1CD4B', }}>
         {
