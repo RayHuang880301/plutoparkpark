@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useEffect, useRef } from 'react'
 import styles from './LuckyCard.module.css'
 import Image from 'next/image'
-import pImg from '../../assets/pImgBWt.svg'
+import pImg from '../../assets/pImgWt.svg'
 
 interface Props {
   img: string;
