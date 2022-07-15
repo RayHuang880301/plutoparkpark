@@ -102,7 +102,7 @@ const FortuneList = [
         image: ImageFortune4.src,
         backgroundColor: '#F1CD4B',
     }
-].sort(() => Math.random() - 0.5);
+]; // .sort(() => Math.random() - 0.5); 
 const FeelingList = [
     {
         title: '想睡',
@@ -284,20 +284,20 @@ export default function FrontCover() {
           case 'A':
             location.reload();
             break;
-          case 'q':
-          case 'Q':
+          case 'r':
+          case 'R':
             chooseFortune(FortuneList[0].type);     
             break;
-          case 'w':
-          case 'W':
+          case 't':
+          case 'T':
             chooseFortune(FortuneList[1].type);     
+            break;
+          case 'y':
+          case 'Y':
+            chooseFortune(FortuneList[2].type);     
             break;
           case 'e':
           case 'E':
-            chooseFortune(FortuneList[2].type);     
-            break;
-          case 'r':
-          case 'R':
             chooseFortune(FortuneList[3].type);     
             break;
           case 'd':
