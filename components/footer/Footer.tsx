@@ -15,7 +15,7 @@ export default function Footer(props: Props) {
       {/* <div className={styles.img}><Image src={plutoLabLogo} width={67} height={45} alt=''/></div> */}
       <div className={styles.copyright}>Pluto Lab © 2022</div>
       <div className={styles.word}></div>
-      <div className={styles.keyboard}><Image src={children} width={168} height={100} alt=''/></div>
+      <div className={styles.keyboard}><Image src={children} width={168} height={100} alt='' layout="responsive"/></div>
     </div>
   )
 }

@@ -31,4 +31,13 @@
   position: absolute;
   bottom: 1rem;
   right: 2rem;
+  width: 168px;
+  height: 100px;
+}
+
+@media screen and (min-width: 1400px) {
+    .keyboard {
+      width: 336px;
+      height: 200px;
+    }
 }
