@@ -240,6 +240,7 @@ export default function FrontCover() {
         timeoutId: 0,
       })
       setKeyboardImg(keyboard4.src)
+      playSpecialMode(true);
     }, FAKE_LOADING_TIME);
     setLoadingState({
       isLoaded: false,
@@ -281,14 +282,17 @@ export default function FrontCover() {
     return !isFeelingSubmit && feeling === feelingType;
   }
 
-  const playSpecialMode = () => {
+  const playSpecialMode = useCallback((isLoop = false) => {
     const fortune = FortuneList.find(item => item.type === fortuneType);
     const feeling = FeelingList.find(item => item.type === feelingType);
-    const audio1 = new Audio(fortune?.audioPath);
-    const audio2 = new Audio(feeling?.audioPath);
-    fortune?.audio.play();
-    feeling?.audio.play();
-  }
+    if(fortune && feeling) {
+      fortune.audio.loop = isLoop;
+      fortune.audio.play();
+      feeling.audio.loop = isLoop;
+      feeling.audio.play();
+    }
+  }, [feelingType, fortuneType]);
+
 
   
 
