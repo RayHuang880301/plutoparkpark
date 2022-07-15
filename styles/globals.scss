@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+@media screen and (min-width: 1680px) {
+  body {
+    font-size: 18px!important;
+  }
+}
+
+@media screen and (min-width: 3680px) {
+  body {
+    font-size: 24px!important;
+  }
+}
