@@ -81,24 +81,28 @@ const FortuneList = [
         title: '學業運',
         type: FortuneType.Study,
         audioPath: '/audio/melody1.mp3',
+        audio: new Audio('/audio/melody1.mp3'),
         image: ImageFortune1.src,
         backgroundColor: '#F1CD4B',
     }, {
         title: '事業運',
         type: FortuneType.Work,
         audioPath: '/audio/melody2.mp3',
+        audio: new Audio('/audio/melody2.mp3'),
         image: ImageFortune2.src,
         backgroundColor: '#F1CD4B',
     }, {
         title: '戀愛運',
         type: FortuneType.Love,
         audioPath: '/audio/melody3.mp3',
+        audio: new Audio('/audio/melody3.mp3'),
         image: ImageFortune3.src,
         backgroundColor: '#F1CD4B',
     }, {
         title: '健康運',
         type: FortuneType.Health,
         audioPath: '/audio/melody4.mp3',
+        audio: new Audio('/audio/melody4.mp3'),
         image: ImageFortune4.src,
         backgroundColor: '#F1CD4B',
     }
@@ -108,30 +112,35 @@ const FeelingList = [
         title: '想睡',
         type: FeelingType.Sleep,
         audioPath: '/audio/drum1.mp3',
+        audio: new Audio('/audio/drum1.mp3'),
         image: ImageFeeling1.src,
         backgroundColor: '#D9D9D9',
     }, {
         title: '好熱',
         type: FeelingType.Hot,
         audioPath: '/audio/drum2.mp3',
+        audio: new Audio('/audio/drum2.mp3'),
         image: ImageFeeling2.src,
         backgroundColor: '#D9D9D9',
     }, {
         title: '宿醉',
         type: FeelingType.Drink,
         audioPath: '/audio/drum3.mp3',
+        audio: new Audio('/audio/drum3.mp3'),
         image: ImageFeeling3.src,
         backgroundColor: '#D9D9D9',
     }, {
         title: '舒服',
         type: FeelingType.Comfortable,
         audioPath: '/audio/drum4.mp3',
+        audio: new Audio('/audio/drum4.mp3'),
         image: ImageFeeling4.src,
         backgroundColor: '#D9D9D9',
     }, {
         title: '法大',
         type: FeelingType.Big,
         audioPath: '/audio/drum5.mp3',
+        audio: new Audio('/audio/drum5.mp3'),
         image: ImageFeeling5.src,
         backgroundColor: '#D9D9D9',
     }
@@ -268,10 +277,8 @@ export default function FrontCover() {
   const playSpecialMode = () => {
     const fortune = FortuneList.find(item => item.type === fortuneType);
     const feeling = FeelingList.find(item => item.type === feelingType);
-    const audio1 = new Audio(fortune?.audioPath);
-    const audio2 = new Audio(feeling?.audioPath);
-    audio1.play();
-    audio2.play();
+    fortune?.audio.play();
+    feeling?.audio.play();
   }
 
   
