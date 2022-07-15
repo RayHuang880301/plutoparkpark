@@ -48,31 +48,38 @@ export enum FeelingType {
 const enum LuckyType {
   Unknown = '',
   Good = '大吉',
+  Well = '小吉',
   Normal = '平籤',
-  Bad = '大凶'
+  Bad = '凶'
 }
-const LuckyList = [LuckyType.Good, LuckyType.Normal, LuckyType.Bad];
+const LuckyList = [LuckyType.Good, LuckyType.Well, LuckyType.Normal, LuckyType.Bad];
 
 
 const TicketInfo: any = {
   [LuckyType.Unknown]: {},
   [LuckyType.Good]: {
-      [FortuneType.Study]: '讀書不會打瞌睡，只看一次全都會，考試會寫的都正確，有不會的都猜對。',
-      [FortuneType.Work]: '升職加薪好運到，願你幸福快樂開口笑，出門見喜祥雲繞，成功記得分我錢。',
-      [FortuneType.Love]: '將迎來命定人，並深情相愛，一生一世不分離，好扯。',
-      [FortuneType.Health]: '身體非常硬朗，防疫險賺不到錢，健保費送給政府，辛苦了'
+    [FortuneType.Study]: '直接走到飛，歐印賭身家後晉升少年董！',
+    [FortuneType.Work]: '有料，沒準備還拿高分考倒數最後一名！',
+    [FortuneType.Love]: '極限體能王484啊，怎麼搞都不會倒誒？',
+    [FortuneType.Health]: '加賴叫過去，愛愛世大運，冥王星的海王就是你了！',
+  },
+  [LuckyType.Well]: {
+    [FortuneType.Study]: '川頁一波，穩健成長，長大當個大潤發',
+    [FortuneType.Work]: '會寫的都寫對不會寫都猜對，考前記得先大便',
+    [FortuneType.Love]: '小子不錯啊...金槍不倒天天趴踢',
+    [FortuneType.Health]: '曖昧的小店開成分公司，Lover就在你眼前！',
   },
   [LuckyType.Normal]: {
-      [FortuneType.Study]: '維持目前的步調吧，可能進步可能退步，神明也幫不上忙',
-      [FortuneType.Work]: '春天的事業是溫暖的，夏天的事業是芬芳的，秋天的事業是沉甸甸的，冬天的事業是平靜的，其實也不知道這代表啥意思',
-      [FortuneType.Love]: '有愛人請繼續愛他/她，有喜歡的人就去追求，不然人生好無聊',
-      [FortuneType.Health]: '謹言慎行，不要以為自己不會確診，有保險才可以確診'
+      [FortuneType.Study]: '別人小賺你暴富，別人小虧你破產，當心就好',
+      [FortuneType.Work]: '不會寫的一律選Ｃ，不然怎麼辦？',
+      [FortuneType.Love]: '你知道去哪找我，這是一張健康籤！Pluto提醒你注意平安！',
+      [FortuneType.Health]: '我們的速配指數有幾趴？好好經營，來者可追！',
   },
   [LuckyType.Bad]: {
-      [FortuneType.Study]: '讀書一定打瞌睡，看了N次都不會，考試會寫的都...喔沒有會寫的',
-      [FortuneType.Work]: '錢少事多離家遠，做什麼事都不對，總覺得自己很衰，哭哭',
-      [FortuneType.Love]: '遇到好人不是真的好，另一半會讓你心煩；若是單身今年想脫單，不可能。吧',
-      [FortuneType.Health]: '來park park可能喝醉，回家路上小心安全！'
+      [FortuneType.Study]: '塊陶...被割爛後麥當勞報到，快加入Pluto化解！',
+      [FortuneType.Work]: '出包了啦，完美避開正確答案，Pluto之神提醒你記得讀書',
+      [FortuneType.Love]: '沒保險就少出門多戴口罩，不然自摸二條的就是你！',
+      [FortuneType.Health]: '聽完這首歌你就會放下他了⋯⋯嗎？沒事啦，下個會更好。',
   }
 }
 
@@ -277,6 +284,8 @@ export default function FrontCover() {
   const playSpecialMode = () => {
     const fortune = FortuneList.find(item => item.type === fortuneType);
     const feeling = FeelingList.find(item => item.type === feelingType);
+    const audio1 = new Audio(fortune?.audioPath);
+    const audio2 = new Audio(feeling?.audioPath);
     fortune?.audio.play();
     feeling?.audio.play();
   }
