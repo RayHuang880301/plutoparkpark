@@ -58,28 +58,28 @@ const LuckyList = [LuckyType.Good, LuckyType.Well, LuckyType.Normal, LuckyType.B
 const TicketInfo: any = {
   [LuckyType.Unknown]: {},
   [LuckyType.Good]: {
-    [FortuneType.Study]: '直接走到飛，歐印賭身家後晉升少年董！',
-    [FortuneType.Work]: '有料，沒準備還拿高分考倒數最後一名！',
-    [FortuneType.Love]: '極限體能王484啊，怎麼搞都不會倒誒？',
-    [FortuneType.Health]: '加賴叫過去，愛愛世大運，冥王星的海王就是你了！',
+    [FortuneType.Study]: '有料，沒準備還拿高分考倒數最後一名！',
+    [FortuneType.Work]: '直接走到飛，歐印賭身家後晉升少年董！',
+    [FortuneType.Love]: '加賴叫過去，愛愛世大運，冥王星的海王就是你了！',
+    [FortuneType.Health]: '極限體能王484啊，怎麼搞都不會倒誒？',
   },
   [LuckyType.Well]: {
-    [FortuneType.Study]: '川頁一波，穩健成長，長大當個大潤發',
-    [FortuneType.Work]: '會寫的都寫對不會寫都猜對，考前記得先大便',
-    [FortuneType.Love]: '小子不錯啊...金槍不倒天天趴踢',
-    [FortuneType.Health]: '曖昧的小店開成分公司，Lover就在你眼前！',
+    [FortuneType.Study]: '會寫的都寫對不會寫都猜對，考前記得先大便',
+    [FortuneType.Work]: '川頁一波，穩健成長，長大當個大潤發',
+    [FortuneType.Love]: '曖昧的小店開成分公司，Lover就在你眼前！',
+    [FortuneType.Health]: '小子不錯啊...金槍不倒天天趴踢',
   },
   [LuckyType.Normal]: {
-      [FortuneType.Study]: '別人小賺你暴富，別人小虧你破產，當心就好',
-      [FortuneType.Work]: '不會寫的一律選Ｃ，不然怎麼辦？',
-      [FortuneType.Love]: '你知道去哪找我，這是一張健康籤！Pluto提醒你注意平安！',
-      [FortuneType.Health]: '我們的速配指數有幾趴？好好經營，來者可追！',
+    [FortuneType.Study]: '不會寫的一律選Ｃ，不然怎麼辦？',
+    [FortuneType.Work]: '別人小賺你暴富，別人小虧你破產，當心就好',
+    [FortuneType.Love]: '我們的速配指數有幾趴？好好經營，來者可追！',
+    [FortuneType.Health]: '你知道去哪找我，這是一張健康籤！Pluto提醒你注意平安！',
   },
   [LuckyType.Bad]: {
-      [FortuneType.Study]: '塊陶...被割爛後麥當勞報到，快加入Pluto化解！',
-      [FortuneType.Work]: '出包了啦，完美避開正確答案，Pluto之神提醒你記得讀書',
-      [FortuneType.Love]: '沒保險就少出門多戴口罩，不然自摸二條的就是你！',
-      [FortuneType.Health]: '聽完這首歌你就會放下他了⋯⋯嗎？沒事啦，下個會更好。',
+    [FortuneType.Study]: '出包了啦，完美避開正確答案，Pluto之神提醒你記得讀書',
+    [FortuneType.Work]: '塊陶...被割爛後麥當勞報到，快加入Pluto化解！',
+    [FortuneType.Love]: '聽完這首歌你就會放下他了⋯⋯嗎？沒事啦，下個會更好。',
+    [FortuneType.Health]: '沒保險就少出門多戴口罩，不然自摸二條的就是你！',
   }
 }
 

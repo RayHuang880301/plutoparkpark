@@ -11,54 +11,57 @@ interface Props {
   image: string;
   subImage: string;
 }
-
+const b5 = typeof Audio !== "undefined" ? new Audio('/audio/b5.mp3') : undefined;
+const b6 = typeof Audio !== "undefined" ? new Audio('/audio/b6.mp3') : undefined;
+const b7 = typeof Audio !== "undefined" ? new Audio('/audio/b7.mp3') : undefined;
+const b8 = typeof Audio !== "undefined" ? new Audio('/audio/b8.mp3') : undefined;
 
 export default function PlayCard(props: Props) {
   const { image, subImage, fortuneType } = props;
   const effectMusic1 = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio('/audio/b5.mp3') : undefined
+    b5
   );
   const effectMusic2 = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio('/audio/b6.mp3') : undefined
+    b6
   );
   const effectMusic3 = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio('/audio/b7.mp3') : undefined
+    b7
   );
   const effectMusic4 = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio('/audio/b8.mp3') : undefined
+    b8
   );
   // PLUTOEFFECT
   const root = useRef<HTMLDivElement>(null);
   //
 
 
-  const [isEffectPlaying, setIsEffectPlaying] = useState(0);
-  const onEffectPlay = useCallback((time: number = 200) => {
-    if(isEffectPlaying > 0) {
-      clearTimeout(isEffectPlaying);
-    }
-    setIsEffectPlaying(time);
-    setTimeout(() => {
-      setIsEffectPlaying(0);
-    }, time)
-  }, [isEffectPlaying]);
+  // const [isEffectPlaying, setIsEffectPlaying] = useState(0);
+  // const onEffectPlay = useCallback((time: number = 200) => {
+  //   if(isEffectPlaying > 0) {
+  //     clearTimeout(isEffectPlaying);
+  //   }
+  //   setIsEffectPlaying(time);
+  //   setTimeout(() => {
+  //     setIsEffectPlaying(0);
+  //   }, time)
+  // }, [isEffectPlaying]);
   const playRandomEffect = useCallback((): number => {
     const effectList = [animateFadeInBatch, fadeInCenterBig, rotateRandomBatch, heartbeat ]
     const list = [effectMusic1, effectMusic2, effectMusic3, effectMusic4]
     const random = Math.floor(Math.random() * list.length);
-    const player = list[random].current;
-    if(player) {
-      if(!player.paused) {
-        player.pause();
-        player.currentTime = 0;
-      }
+    const player = list[random].current?.cloneNode() as any;
+    if(player && player.play) {
+      // if(!player.paused) {
+      //   player.pause();
+      //   player.currentTime = 0;
+      // }
       player.play();
-      console.log(fortuneType)
+      // console.log(fortuneType)
       const time = effectList[random](root.current, fortuneType as any);
-      onEffectPlay();
+      // onEffectPlay();
     }
     return 0;
-  }, [fortuneType, onEffectPlay])
+  }, [])
 
   useEffect(() => {
     const handler = (event: any) => {
