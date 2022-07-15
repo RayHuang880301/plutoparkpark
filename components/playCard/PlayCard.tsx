@@ -79,7 +79,7 @@ export default function PlayCard(props: Props) {
     <>
     <div ref={root} id="pluto-effect" onClick={() => playRandomEffect} className="pluto-effect only-nft"></div>
     <div className={`${styles.box}`}>
-      <div className={`${styles.boxImage} ${isEffectPlaying ? styles.playing : ''}`} style={{backgroundColor: '#F1CD4B', }}>
+      <div className={`${styles.boxImage}`} style={{backgroundColor: '#F1CD4B', }}>
         {
           (
             subImage &&

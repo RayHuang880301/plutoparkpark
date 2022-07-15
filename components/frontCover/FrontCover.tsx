@@ -294,7 +294,7 @@ export default function FrontCover() {
             break;
           case 'y':
           case 'Y':
-            chooseFortune(FortuneList[2].type);     
+            chooseFortune(FortuneList[2].type);
             break;
           case 'e':
           case 'E':
