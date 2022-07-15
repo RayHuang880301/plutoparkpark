@@ -19,8 +19,8 @@
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   position: relative;
-  width: 13vw;
-  height: 13vw;
+  width: 15vw;
+  height: 15vw;
   transition: box-shadow 500ms ease-in-out, transform 500ms ease-in-out;
   overflow: hidden;
 }
