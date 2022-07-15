@@ -1,6 +1,8 @@
 import React, { MouseEventHandler, useEffect, useRef } from 'react'
 import styles from './LuckyCard.module.css'
 import Image from 'next/image'
+import pImg from '../../assets/pImg.svg'
+
 interface Props {
   img: string;
   children: string;
@@ -52,6 +54,7 @@ export default function LuckyCard(props: Props) {
           ) || ''
         }
         {isFortuneSubmit && <Image src={img} width={180} height={180} alt='' layout='responsive'/>}
+        {!isFortuneSubmit && <div className={styles.logo}><Image src={pImg} width={100} height={100} alt='' layout='fixed'/></div>}
       </div>
       {/* <div className={styles.choice}>{children}</div> */}
     </div>
