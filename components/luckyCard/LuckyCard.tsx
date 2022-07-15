@@ -54,7 +54,7 @@ export default function LuckyCard(props: Props) {
           ) || ''
         }
         {isFortuneSubmit && <Image src={img} width={180} height={180} alt='' layout='responsive'/>}
-        {!isFortuneSubmit && <div className={styles.logo}><Image src={pImg} width={100} height={100} alt='' layout="fixed"/></div>}
+        {!isFortuneSubmit && <div className={styles.logo}><Image src={pImg} width={130} height={130} alt=''/></div>}
       </div>
       {/* <div className={styles.choice}>{children}</div> */}
     </div>
