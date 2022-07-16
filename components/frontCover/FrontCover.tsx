@@ -297,8 +297,10 @@ export default function FrontCover() {
     }
   }, [feelingType, fortuneType]);
 
-
-  
+  const getFeelingSubTitle = useCallback(() => {
+    const fortune = FortuneList.find(item => item.type === fortuneType);
+    return fortune?.subtitle;
+  }, [fortuneType])
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
@@ -377,7 +379,7 @@ export default function FrontCover() {
             <div className={styles.cards}>
               {FeelingList.map((item, idx) =>  <LuckyCard onClick={(event) => chooseFeeling(item.type)} isFortuneSubmit={isFortuneSubmit} isPlay={isFeelingActive(item.type)} audioPath={item.audioPath} key={idx} img={item.image} backgroundColor={isFeelingActive(item.type) ? '#939393' : item.backgroundColor} subImage={subImage()}>{item.title}</LuckyCard> )}
             </div> 
-            <div className={styles.title}>subtitle</div>
+            <div className={styles.title}>{getFeelingSubTitle()}</div>
           </>
           ) || ''
         }
