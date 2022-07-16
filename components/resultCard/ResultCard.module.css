@@ -15,22 +15,22 @@
   /* justify-content: space-between; */
   background: url('../../assets//ticket.png') center bottom no-repeat;
   background-size: contain;
-  margin-top: 5%;
+  margin-top: 6%;
   width: 39.3vh;
   height: 70vh;
 }
 
 .result {
   font-weight: 800;
-  font-size: 5rem;
+  font-size: 6rem;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 3rem 0;
 }
 
 .word {
   font-weight: 800;
-  font-size: 3rem;
-  padding: 0 2rem 1rem 2rem;
+  font-size: 4rem;
+  padding: 0 3rem 2rem 3rem;
 }
 
 .boxImage {

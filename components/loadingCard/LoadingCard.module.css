@@ -5,16 +5,16 @@
 }
 
 .bar {
-  width: 600px;
-  height: 25px;
-  margin: 2rem;
+  width: 800px;
+  height: 35px;
+  margin: 3rem;
   background: #ffffff;
   border: 1px solid #000000;
 }
 
 .line {
   width: 99%;
-  height: 23px;
+  height: 33px;
   background: #e6dd35;
   animation: loadingbar 5s ease-in-out;
   animation-iteration-count: 1;
@@ -22,7 +22,7 @@
 
 .word {
   font-weight: 800;
-  font-size: 4rem;
+  font-size: 6rem;
   color: white;
 }
 
