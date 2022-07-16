@@ -86,6 +86,7 @@ const TicketInfo: any = {
 const FortuneList = [
     {
         title: '學業運',
+        subtitle: '你最近似乎有「學業」的壓力...',
         type: FortuneType.Study,
         audioPath: '/audio/melody1.mp3',
         audio: new Audio('/audio/melody1.mp3'),
@@ -93,6 +94,7 @@ const FortuneList = [
         backgroundColor: '#F1CD4B',
     }, {
         title: '事業運',
+        subtitle: '你最近特別心煩「事業」瓶頸...',
         type: FortuneType.Work,
         audioPath: '/audio/melody2.mp3',
         audio: new Audio('/audio/melody2.mp3'),
@@ -100,6 +102,7 @@ const FortuneList = [
         backgroundColor: '#F1CD4B',
     }, {
         title: '戀愛運',
+        subtitle: '你最近可能有「暈船」的困擾...',
         type: FortuneType.Love,
         audioPath: '/audio/melody3.mp3',
         audio: new Audio('/audio/melody3.mp3'),
@@ -107,6 +110,7 @@ const FortuneList = [
         backgroundColor: '#F1CD4B',
     }, {
         title: '健康運',
+        subtitle: '你最近有點在意身心「健康」...',
         type: FortuneType.Health,
         audioPath: '/audio/melody4.mp3',
         audio: new Audio('/audio/melody4.mp3'),
@@ -369,9 +373,13 @@ export default function FrontCover() {
         }
         {
           (isFortuneSubmit && !isFeelingSubmit &&
-          <div className={styles.cards}>
-            {FeelingList.map((item, idx) =>  <LuckyCard onClick={(event) => chooseFeeling(item.type)} isFortuneSubmit={isFortuneSubmit} isPlay={isFeelingActive(item.type)} audioPath={item.audioPath} key={idx} img={item.image} backgroundColor={isFeelingActive(item.type) ? '#939393' : item.backgroundColor} subImage={subImage()}>{item.title}</LuckyCard> )}
-          </div> ) || ''
+          <>
+            <div className={styles.cards}>
+              {FeelingList.map((item, idx) =>  <LuckyCard onClick={(event) => chooseFeeling(item.type)} isFortuneSubmit={isFortuneSubmit} isPlay={isFeelingActive(item.type)} audioPath={item.audioPath} key={idx} img={item.image} backgroundColor={isFeelingActive(item.type) ? '#939393' : item.backgroundColor} subImage={subImage()}>{item.title}</LuckyCard> )}
+            </div> 
+            <div className={styles.title}>subtitle</div>
+          </>
+          ) || ''
         }
         {
           (!specialComfirmState.isComfirm && isFortuneSubmit && isFeelingSubmit && 
